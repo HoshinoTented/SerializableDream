@@ -3,7 +3,7 @@
 newtype Identity = String;
 newtype FullName = String;
 
-data Quality = Darkness | Aka | Midori | Ao | Shiny
+data Quality = BoroBoro | Aka | Midori | Ao | KiraKira
 
 newtype Skills =  [Skill]
 newtype SpecialSkill = Skill
@@ -14,8 +14,9 @@ data Item = Item {
     id: Identity,
     name: FullName,
     quality: Quality,
+    single: Bool,
     skills: Skills,
-    sskill: SpecialSkill
+    sskill: Maybe SpecialSkill
 }
 
 Field    | Value
@@ -23,6 +24,7 @@ Field    | Value
 id       | _|_
 name     | _|_
 quality  | _|_
+single   | _|_
 skills   | _|_
 sskill   | _|_
 
@@ -30,8 +32,9 @@ sskill   | _|_
 
 fromDesc :: String -> Maybe SkillAction
 
+newtype Cost = Cost Integer
 data SkillAction = {- Built-in -}
-data SkillBody = Auto SkillAction | Skill SkillAction
+data SkillBody = Auto SkillAction | Skill Cost SkillAction
 data Skill = Skill {
     id: Identity,
     name: FullName,
