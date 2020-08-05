@@ -1,7 +1,8 @@
 # Template
 
-newtype Identity = String;
-newtype FullName = String;
+newtype Identity = String
+newtype FullName = String
+newtype Description = String
 
 data Quality = BoroBoro | Aka | Midori | Ao | KiraKira
 
@@ -13,6 +14,7 @@ newtype SpecialSkill = Skill
 data Item = Item {
     id: Identity,
     name: FullName,
+    desc: Description,
     quality: Quality,
     single: Bool,
     skills: Skills,
@@ -23,6 +25,7 @@ Field    | Value
 :--------|:-------------
 id       | _|_
 name     | _|_
+desc     | _|_
 quality  | _|_
 single   | _|_
 skills   | _|_
