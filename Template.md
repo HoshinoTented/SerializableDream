@@ -12,13 +12,13 @@ newtype SpecialSkill = Skill
 ## Item
 
 data Item = Item {
-    id: Identity,
-    name: FullName,
-    desc: Description,
-    quality: Quality,
-    single: Bool,
-    skills: Skills,
-    sskill: Maybe SpecialSkill
+    id :: Identity,
+    name :: FullName,
+    desc :: Description,
+    quality :: Quality,
+    single :: Bool,
+    skills :: Skills,
+    sskill :: Maybe SpecialSkill
 }
 
 Field    | Value
@@ -39,9 +39,9 @@ newtype Cost = Cost Integer
 data SkillAction = {- Built-in -}
 data SkillBody = Auto SkillAction | Skill Cost SkillAction
 data Skill = Skill {
-    id: Identity,
-    name: FullName,
-    body: SkillBody
+    id :: Identity,
+    name :: FullName,
+    body :: SkillBody
 }
 
 Field    | Value
@@ -49,3 +49,42 @@ Field    | Value
 id       | _|_
 name     | _|_
 body     | _|_
+
+## Chars
+
+newtype Power = Power Integer
+newtype MahouPower = MahouPower Integer
+newtype MaRyoku = MaRyoku Integer
+newtype HealthPower = HealthPower Integer
+newtype BrainPower = BrainPower Integer
+newtype Shield = Shield Integer
+newtype MahouShield = MahouShield Integer
+newtype BrainShield = BrainShield Integer
+newtype Heal = Heal Integer
+newtype Luck = Luck Integer
+
+data Properties = Properties
+    Power
+    MahouPower
+    MaRyoku
+    HealthPower
+    BrainPower
+    Shield
+    MahouShield
+    BrainShield
+    Heal
+    Luck
+
+data Chars = Chars {
+    id :: Identity,
+    name :: FullName,
+    properties :: Properties,
+    skills :: Skills
+}
+
+Field      | Value
+:----------|:--------
+id         | _|_
+name       | _|_
+properties | _|_
+skills     | _|_
